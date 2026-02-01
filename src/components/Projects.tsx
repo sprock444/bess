@@ -88,53 +88,50 @@ const iconMap: Record<string, ReactNode> = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 md:py-28 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 md:py-32 section-darker relative">
+      {/* Background grid */}
+      <div className="absolute inset-0 grid-overlay opacity-30" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="section-heading">
-            Featured <span className="gradient-text">Projects</span>
+          <p className="text-electric-500 font-medium uppercase tracking-widest text-sm mb-4">
+            Our Portfolio
+          </p>
+          <h2 className="headline-lg mb-6">
+            Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="section-subheading">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Explore our portfolio of grid-scale and commercial energy storage
             deployments powering the clean energy transition.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="card group hover:translate-y-[-4px] transition-all duration-300"
-            >
+            <div key={index} className="card group">
               <div className="flex items-start justify-between mb-6">
-                <div
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center ${
-                    project.status === "Operational"
-                      ? "bg-secondary-100 text-secondary-600"
-                      : "bg-accent-100 text-accent-600"
-                  }`}
-                >
+                <div className="w-16 h-16 bg-dark-800 border border-white/10 flex items-center justify-center text-electric-500 group-hover:border-electric-500/50 transition-colors">
                   {iconMap[project.image]}
                 </div>
                 <span
-                  className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                  className={`inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider ${
                     project.status === "Operational"
-                      ? "bg-secondary-100 text-secondary-700"
-                      : "bg-accent-100 text-accent-700"
+                      ? "bg-neon-500/10 text-neon-500 border border-neon-500/20"
+                      : "bg-electric-500/10 text-electric-400 border border-electric-500/20"
                   }`}
                 >
                   <span
-                    className={`w-2 h-2 rounded-full mr-2 ${
+                    className={`w-1.5 h-1.5 rounded-full mr-2 ${
                       project.status === "Operational"
-                        ? "bg-secondary-500"
-                        : "bg-accent-500 animate-pulse"
+                        ? "bg-neon-500"
+                        : "bg-electric-500 animate-pulse"
                     }`}
-                  ></span>
+                  />
                   {project.status}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-electric-400 transition-colors">
                 {project.name}
               </h3>
 
@@ -156,50 +153,40 @@ export default function Projects() {
                   </svg>
                   {project.location}
                 </span>
-                <span className="text-primary-600 font-medium">{project.type}</span>
+                <span className="text-electric-500 font-medium">{project.type}</span>
               </div>
 
-              <p className="text-gray-600 mb-6">{project.description}</p>
+              <p className="text-gray-400 mb-6 leading-relaxed">{project.description}</p>
 
-              <div className="pt-6 border-t border-gray-100">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-gray-500">Capacity</p>
-                    <p className="text-lg font-bold text-gray-900">{project.capacity}</p>
-                  </div>
-                  <button className="text-primary-600 font-medium text-sm hover:text-primary-700 flex items-center gap-1">
-                    Learn More
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </button>
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+                <div>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Capacity</p>
+                  <p className="text-lg font-bold text-white">{project.capacity}</p>
                 </div>
+                <button className="text-electric-500 font-medium text-sm hover:text-electric-400 flex items-center gap-2 group/btn">
+                  Learn More
+                  <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-8 bg-white rounded-2xl shadow-lg px-8 py-6">
-            <div className="text-center">
-              <p className="text-3xl font-bold text-primary-600">475+</p>
-              <p className="text-sm text-gray-600">Total MW</p>
-            </div>
-            <div className="h-12 w-px bg-gray-200"></div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-secondary-600">1.9 GWh</p>
-              <p className="text-sm text-gray-600">Energy Capacity</p>
-            </div>
-            <div className="h-12 w-px bg-gray-200"></div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-accent-600">50+</p>
-              <p className="text-sm text-gray-600">Projects</p>
-            </div>
+        {/* Summary stats */}
+        <div className="mt-16 flex flex-wrap justify-center gap-12 md:gap-20 py-10 border-t border-b border-white/10">
+          <div className="text-center">
+            <p className="stat-value">475+</p>
+            <p className="text-sm text-gray-500 mt-1 uppercase tracking-wider">Total MW</p>
+          </div>
+          <div className="text-center">
+            <p className="stat-value">1.9 GWh</p>
+            <p className="text-sm text-gray-500 mt-1 uppercase tracking-wider">Energy Capacity</p>
+          </div>
+          <div className="text-center">
+            <p className="stat-value">50+</p>
+            <p className="text-sm text-gray-500 mt-1 uppercase tracking-wider">Projects</p>
           </div>
         </div>
       </div>
