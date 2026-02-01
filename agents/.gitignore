@@ -1,0 +1,32 @@
+# Environment
+.env
+
+# Output files
+output/blog/*.md
+output/blog/*.json
+output/linkedin/*.txt
+output/linkedin/*.json
+output/schedule.json
+
+# Keep output directories
+!output/blog/.gitkeep
+!output/linkedin/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
