@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #eef9ff;
+  --color-primary-100: #d9f1ff;
+  --color-primary-200: #bce8ff;
+  --color-primary-300: #8edaff;
+  --color-primary-400: #59c3ff;
+  --color-primary-500: #33a5ff;
+  --color-primary-600: #1b85f5;
+  --color-primary-700: #146de1;
+  --color-primary-800: #1758b6;
+  --color-primary-900: #194b8f;
+  --color-primary-950: #142f57;
+
+  --color-secondary-50: #f0fdf4;
+  --color-secondary-100: #dcfce7;
+  --color-secondary-200: #bbf7d0;
+  --color-secondary-300: #86efac;
+  --color-secondary-400: #4ade80;
+  --color-secondary-500: #22c55e;
+  --color-secondary-600: #16a34a;
+  --color-secondary-700: #15803d;
+  --color-secondary-800: #166534;
+  --color-secondary-900: #14532d;
+  --color-secondary-950: #052e16;
+
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+  --color-accent-950: #451a03;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --animate-fade-in: fadeIn 0.5s ease-in-out;
+  --animate-slide-up: slideUp 0.5s ease-out;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--color-primary-600);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-700);
+}
+
+.btn-primary:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--color-primary-500);
+  ring-offset: 2px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary-700);
+  background-color: white;
+  border: 2px solid var(--color-primary-600);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-50);
+}
+
+.section-heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    font-size: 2.25rem;
+  }
+}
+
+.section-subheading {
+  font-size: 1.125rem;
+  color: #4b5563;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .section-subheading {
+    font-size: 1.25rem;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 2rem;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(to bottom right, var(--color-primary-50), white, var(--color-secondary-50));
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--color-primary-600), var(--color-secondary-600));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
